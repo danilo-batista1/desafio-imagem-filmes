@@ -1,0 +1,25 @@
+CREATE TABLE pessoa (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  cpf VARCHAR(11) NOT NULL,
+  nome VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE produto (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  descricao VARCHAR(50) NOT NULL,
+  valor_unitario NUMERIC(10,2) NOT NULL
+);
+
+CREATE TABLE pedido (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pessoa VARCHAR(255) NOT NULL,
+    itens VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE pedido_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    item VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedido(id)
+);
